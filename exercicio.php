@@ -20,13 +20,28 @@
   </header>
 
   <nav class="navegacao">
-    <a href="#" class="verde">Sem formatação</a>
+    <a href=<?= "{$_GET['dir']}/{$_GET['file']}.php"; ?> class="verde">Sem formatação</a>
     <a href="index.php" class="vermelho">Voltar</a>
   </nav>
 
   <main class="principal">
-    <div class="conteudo">
+    <div class="conteudo">     
+      <?php 
+        //  OPÇÃO 1 - INCLUDE 
+       //include("teste/teste.php") 
 
+        // OPÇÃO 2 - http://localhost/exercicio.php?dir=teste 
+        //include($_GET['dir'] . "/teste.php"); 
+
+        // OPÇÃO 3 - http://localhost/exercicio.php?dir=teste&file=teste    NÃO CONSEGUI FAZER FUNCIONAR
+        //include($_GET['dir'] . "/" . $_GET['file'] . "php");
+        
+        //OPÇÃO 4 - http://localhost/exercicio.php?dir=teste&file=teste
+        include("{$_GET['dir']}/{$_GET['file']}.php");       
+
+        //OPÇÃO 5 - TB NÃO CONSEGUI FAZER FUNCIONAR
+        //include(_DIR_."/{$_GET['dir']}/{$_GET['file']}.php");
+        ?>
     </div>
   </main>
 
